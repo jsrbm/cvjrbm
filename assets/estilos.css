@@ -1,0 +1,16 @@
+body { 
+   margin: 0px;
+   display: flex;
+   flex-direction: column;
+}
+
+.divCentral {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.asideDer {
+   margin-right: 0px;
+}
+       
+
