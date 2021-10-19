@@ -16,4 +16,6 @@ body {
    margin-right: 0px;
 }
        
-
+#ulEscuelas {
+   background-image: url("./imagenes/eudoxia.png");
+}

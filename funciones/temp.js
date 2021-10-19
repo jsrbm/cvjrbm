@@ -1,5 +1,5 @@
 // const dataPres = import('./data.js')
-const menuPanel = import('./menuPanel.js')
+import menuPanel from "./menuPanel.js"
 
 const toggItem = (auxVista) => {
    const auxDom = document.getElementById(auxVista)
@@ -17,19 +17,40 @@ const itemsVista = (item) => {
 */
 
 const mpInitPres = () => {
-console.log(menuPanel)
       // crear Div Padre, onclick => divMenuPanelPresTexto innhtml = dataPRes.auxDisp
-   const objVista = dataPres.map((ele)=>{
-      return {
+
+
+   const opcVista ={
+      auxRet: false,
+      opc: dataPres.map((ele)=>{
+         return {
+            tag: 'p',
+            class: ['pPres'],
+            attrbs: [`auxDisp=${ele.auxDisp}`],
+            innHtml: ele.innHtml
+         }
+      })
+   }
+
+const objVista =[{
+         domPadre: 'menuPanel',
          tag: 'p',
          class: ['pPres'],
-         attrbs: [`auxDisp=${ele.auxDisp}`],
-         innHtml: ele.innHtml
-      }
-   })
+         attrbs: [`auxDisp=pres`],
+         innHtml: 'vista ' 
+         }]
    // add div pressTexto despues de pDips
-   const mpPres = new menuPanel()
-   const auxRender = menuPanel.ctrVistaMenuPanel(objVista)
+   const mpPres = new menuPanel('divCentralMedio', false)
+
+
+   const auxEvento = (e) => {
+            if(e.target.getAttribute('auxDisp')){
+                mpPres.mpLimpiarVista('menuPanel', true)
+                mpPres.crearDom(data.arrmpBarraMiData[e.target.getAttribute('auxDisp')])
+             }
+          }
+
+   const auxRender = mpPres.ctrVistaMenuPanel(objVista, false, opcVista.opc, auxEvento)
          
   } 
    

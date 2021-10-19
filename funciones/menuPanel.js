@@ -1,8 +1,8 @@
-/ Iniciar Clase / 
+// Iniciar Clase / 
 export default class menuPanel {
 
-   constructor(paramOpc){  
-   /*
+   constructor(domPadre, opcRet = true){  
+   
         const genOpc = { 
          vista: {
             mpVistaPadre: 'mpVista',
@@ -43,10 +43,10 @@ export default class menuPanel {
          },
          }
    
-   const opciones = {...genOpc, ...paramOpc}
-   this.opciones = opciones
-     console.log({...genOpc})
-  */ 
+   this.opciones = {...genOpc}
+   document.getElementById(domPadre).appendChild(fnsGen.stringToHtml('<div id="mpVista"></div>'))
+   this.mpVistaOpciones(opcRet)
+   document.getElementById(domPadre).appendChild(fnsGen.stringToHtml('<div id="menuPanel"></div>'))
    }
 
 
@@ -66,40 +66,41 @@ export default class menuPanel {
 // bsqVistasMetodos
 //
 
-mpSetPreVista(auxIdDom){
-// set this.preVista = ...this, {preVista}  , return Vista.preVista ¡?
-   this.vista.preVista = document.getElementById(auxIdDom).cloneNode(true)
-   }
-mpVistaOpciones(){
-const aux = {
-vistaBarraOpciones: [{ 
-                           domPadre: 'mpVista',
-                           tag: 'div',
-                           auxId: 'vmpOpcionesVista',
-                           // evento: (clase = 'cbxCrearFichaUsuario') => {console.log((clase))},
-                           domHijos: [{
-                              domPadre: 'vmpOpcionesVista',
-                              auxId: 'vmpOpcionesReturn',
-                              tag:'p',
-                              innHtml: 'regresar'
-                              }],
-                           }],
-            vistaOpciones: [{
-               domPadre: 'vmpOpcionesVista',
-               tag: 'div',
-               auxId: 'vmpOpciones',
-               domHijos:[{domPadre: 'vmpOpciones',
-                           tag: 'p',
-                           innHtml: 'opcion1'}]
-                           }],
-                           
-                           
-                           }
+mpVistaOpciones(auxRet = true, paramOpc = null){
+      
+   const vistaBarraOpciones = [{ 
+                        domPadre: 'mpVista',
+                        tag: 'div',
+                        auxId: 'vmpOpcionesVista',
+                        // evento: (clase = 'cbxCrearFichaUsuario') => {console.log((clase))},
+                        }]
+         
+   this.crearDom(vistaBarraOpciones)
+if(auxRet){
+   const auxRegresar = [{
+         domPadre: 'vmpOpcionesVista',
+         auxId: 'vmpOpcionesReturn',
+         tag:'p',
+         innHtml: 'regresar'
+      }]
+      this.crearDom(auxRegresar)
+}
 
+if(paramOpc){
    
-   console.log(this)
-	this.crearDom(this.opciones.vista.vistaBarraOpciones)
-	this.crearDom(this.opciones.vista.vistaOpciones)
+   const setOpc = paramOpc.map((ele) => {
+      return { ...ele, domPadre: 'vmpOpciones'}
+   })
+
+   const vistaOpciones = [{
+         domPadre: 'vmpOpcionesVista',
+         tag: 'div',
+         auxId: 'vmpOpciones',
+         domHijos: setOpc,
+      }]
+	this.crearDom(vistaOpciones)
+}
+   
    return 
 }
 mpIniVistaSet(auxPreVista){
@@ -109,16 +110,22 @@ mpIniVistaSet(auxPreVista){
 
 // bsqUtilidades
 
-mpLimpiarVista(auxId = this.vista.mpVistaPadre){
+mpLimpiarVista(auxId = this.vista.mpVistaPadre, toda = false){
+   if(toda){
+      while(document.getElementById(auxId).children[0]){
+      document.getElementById(auxId).removeChild(document.getElementById(auxId).lastChild)}
+      }  else {
    while(document.getElementById(auxId).children[1]){
       document.getElementById(auxId).removeChild(document.getElementById(auxId).lastChild)}
+      }
+
 }
 
 
 asgVistaDom(auxPadre, ele, evento=null){
       document.getElementById(auxPadre).appendChild(fnsGen.stringToHtml(ele))
       if(evento){
-      document.getElementById(auxPadre).addEventListener('click', () => {evento()})
+      document.getElementById(auxPadre).addEventListener('click', (e) => {evento(e)})
    }
 }
 
@@ -164,14 +171,19 @@ crearDom(auxObjVista){
 
 // bsqFnVista
 
-ctrVistaMenuPanel(objVista, idPreVista = 'menuPanel', auxVistaData = 'mpVista'){
-   document.getElementById('menuPanel').style.display = 'none'
-   this.mpLimpiarVista(auxVistaData)
-	this.crearDom(objVista)
+ctrVistaMenuPanel(objVista, auxRetOpc, opc, evento=null, idPreVista = 'menuPanel', auxVistaData = 'mpVista'){
+
+   if(evento){document.getElementById(auxVistaData).addEventListener('click', (e)=>{evento(e)})}
+
+   this.crearDom(objVista)
+   this.mpVistaOpciones(auxRetOpc, opc)
+
+/* Return / salir menuPanel
      document.getElementById('vmpOpcionesReturn').addEventListener('click', ()=>{
-         this.mpLimpiarVista(auxVistaData)
-         document.getElementById('menuPanel').style.display = 'block'
+            this.mpLimpiarVista(idPreVista)
+            document.getElementById(idPreVista).style.display = 'block'
          })
+         */
    }
 
 async ctrVistaDataMenuPanel(idPreVista = 'menuPanel', objVista, auxDataClass){
@@ -196,6 +208,7 @@ async ctrVistaDataMenuPanel(idPreVista = 'menuPanel', objVista, auxDataClass){
    return auxData
 
 }
+
 
 
 }// Fin de Clase
