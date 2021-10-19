@@ -3,6 +3,9 @@ body {
    display: flex;
    flex-direction: column;
 }
+.divSuperior {
+   background-color: blue;
+   }
 
 .divCentral {
    display: flex;
