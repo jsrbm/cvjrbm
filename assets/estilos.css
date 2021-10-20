@@ -3,19 +3,106 @@ body {
    display: flex;
    flex-direction: column;
 }
-.divSuperior {
-   background-color: blue;
-   }
 
-.divCentral {
+body ul {
+   padding: 0px;
+   margin: 0px;
+}
+body p{
+   padding: 0px;
+   margin: 0px;
+}
+.divSuperior {
+   height: 15vh;
+   background-color: black;
+   color: white;
    display: flex;
-   flex-direction: row;
    justify-content: space-between;
 }
-.asideDer {
-   margin-right: 0px;
+
+.divPerfilPres {
+   display: flex;
+}
+
+.imgPerf{
+   height: 13vh;
+   width: auto;
+   margin: 5px;
+   border-radius: 25%;
+}
+
+#divContacto {
+   padding: 3px;
+}
+.divCentral {
+   width: 100vw;
+   height: 85vh !important;
+   display: flex;
+}
+
+.divCentralMedio {
+   width: 90vw;
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+}
+
+.asideIzq {
+   width: 10vw;
+   height: 100%;
+   background-color: black;
+   color: white;
+}
+
+.asideIzq ul{
+   margin: 2px;
+   padding: 0px;
+}
+.asideIzq li {
+   list-style-type: none;
+   margin-top: 3px;
+   margin-left: 2px;
+   margin-right: 2px;
 }
        
 #ulEscuelas {
+   margin: 0;
+   width: 100%;
+   height: 100%;
+   background-size: cover;
    background-image: url("./imagenes/eudoxia.png");
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-around;
 }
+
+#mpVista{
+   width: 100%;
+}
+
+#menuPanel {
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+}
+
+#vmpOpcionesVista {
+   width: 100%;
+}
+
+#vmpOpciones {
+   width: 100%;
+   background-color:grey;
+   display: flex;
+   justify-content: space-around;
+}
+
+#divPresInit {
+   height: 100%;
+   width: auto;
+   background-size: 500px;
+   background-image: url("./imagenes/krigerD.jpg");
+}
+

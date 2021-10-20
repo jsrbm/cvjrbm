@@ -9,7 +9,7 @@ const dataPres = [
    },
    {
       auxDisp: '',
-      innHtml: 'opcionchingona',
+      innHtml: 'Trayectoria',
    },
 ]
 const data = {

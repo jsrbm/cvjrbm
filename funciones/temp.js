@@ -34,10 +34,8 @@ const mpInitPres = () => {
 
 const objVista =[{
          domPadre: 'menuPanel',
-         tag: 'p',
-         class: ['pPres'],
-         attrbs: [`auxDisp=pres`],
-         innHtml: 'vista ' 
+         tag: 'div',
+         auxId: 'divPresInit'
          }]
    // add div pressTexto despues de pDips
    const mpPres = new menuPanel('divCentralMedio', false)
