@@ -1,4 +1,3 @@
-// const dataPres = import('./data.js')
 import menuPanel from "./menuPanel.js"
 
 const toggItem = (auxVista) => {
@@ -25,7 +24,7 @@ const mpInitPres = () => {
       opc: dataPres.map((ele)=>{
          return {
             tag: 'p',
-            class: ['pPres'],
+            clases: ['pPres'],
             attrbs: [`auxDisp=${ele.auxDisp}`],
             innHtml: ele.innHtml
          }
@@ -58,7 +57,7 @@ const mpInitCode = () => {
       opc: dataCode.map((ele)=>{
          return {
             tag: 'a',
-            class: ['pCode'],
+            clases: ['aGenVis'],
             attrbs: [`href="${ele.lnk}" target="_blank"`],
             innHtml: ele.innHtml
          }
@@ -86,7 +85,7 @@ const mpInitHerr = () => {
       opc: dataHerr.map((ele)=>{
          return {
             tag: 'a',
-            class: ['pCode'],
+            clases: ['aGenVis'],
             attrbs: [`auxDisp=${ele.auxDisp}`],
             innHtml: ele.innHtml
          }
@@ -119,7 +118,7 @@ const mpInitProy = () => {
       opc: dataProy.map((ele)=>{
          return {
             tag: 'a',
-            clase: ['aGenVis'],
+            clases: ['aGenVis', ...ele.clases],
             attrbs: [`auxDisp=${ele.auxDisp}`],
             innHtml: ele.innHtml
          }

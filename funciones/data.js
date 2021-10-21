@@ -21,6 +21,7 @@ const dataHerr = [
 const dataProy = [
    {
       auxDisp: 'prCom',
+      clases: [],
       innHtml: 'proyectoCompendio',
    }
 ]
@@ -36,10 +37,6 @@ const dataCode = [
 ]
 
 const data = {
-arrvisBarraMi : [ 'Presentación', 'Datos', 'Otros'],
-
-
-// {tag: 'p', clase:'pBarraMi', attrbs:['auxRef=pres'], innHtml: 'Presentación'}
 arrmpBarraMiData : {
    datos: [{
    tag: 'div',
