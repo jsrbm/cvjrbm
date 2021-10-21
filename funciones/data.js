@@ -8,10 +8,33 @@ const dataPres = [
       innHtml: 'Datos Personales',
    },
    {
-      auxDisp: '',
+      auxDisp: 'tray',
       innHtml: 'Trayectoria',
    },
 ]
+const dataHerr = [
+   {
+      auxDisp: 'mp',
+      innHtml: 'menuPanel',
+   }
+]
+const dataProy = [
+   {
+      auxDisp: 'prCom',
+      innHtml: 'proyectoCompendio',
+   }
+]
+const dataCode = [
+   {
+      innHtml: 'this.repo',
+      lnk: 'https://github.com/jsrbm/cvjrbm',
+   },
+   {
+      innHtml: 'herramientas.repo',
+      lnk: 'https://github.com/jsrbm/',
+   },
+]
+
 const data = {
 arrvisBarraMi : [ 'Presentación', 'Datos', 'Otros'],
 
@@ -19,10 +42,21 @@ arrvisBarraMi : [ 'Presentación', 'Datos', 'Otros'],
 // {tag: 'p', clase:'pBarraMi', attrbs:['auxRef=pres'], innHtml: 'Presentación'}
 arrmpBarraMiData : {
    datos: [{
+   tag: 'div',
+   domPadre: 'menuPanel',
+   auxId: 'divDatosPersonales',
+   domHijos:[
+      {
          tag: 'ul',
-         domPadre: 'menuPanel',
+         domPadre: 'divDatosPersonales',
          auxId: 'ulEscuelas',
          domHijos: [
+            {
+               domPadre: 'ulEscuelas',
+               tag: 'li',
+               clases: ['liTitulo'],
+               innHtml: 'Escolaridad',
+            },
             {
                domPadre: 'ulEscuelas',
                tag: 'li',
@@ -43,24 +77,128 @@ arrmpBarraMiData : {
                tag: 'li',
                innHtml: 'IPN',
             },
+            {
+               domPadre: 'ulEscuelas',
+               tag: 'li',
+               innHtml: `Platzi: Cursos Basico e Intermedio (Programacion funcional, promesas, API's)`,
+            },
+            {
+               domPadre: 'ulEscuelas',
+               tag: 'li',
+               innHtml: `Udemy: Cursos React-Redux, Angular, Arduino, Vercel, API's, Firebase.`,
+            },
          ],
+   },
+   // Fin de Escuelas
+   {
+      domPadre: 'divDatosPersonales',
+      tag: 'ul',
+      auxId: 'ulDireccion',
+      domHijos: [
+         {
+               domPadre: 'ulDireccion',
+               tag: 'li',
+               clases: ['liTitulo'],
+               innHtml: 'Direccion:',
+         },
+         {
+               domPadre: 'ulDireccion',
+               tag: 'li',
+               innHtml: 'Lerma de Villada, Estado de México, México. CP: 52000',
+         },
+      ],
+   },
+   {
+      domPadre: 'divDatosPersonales',
+      tag: 'ul',
+      auxId: 'ulHobbies',
+      domHijos: [
+         {
+               domPadre: 'ulHobbies',
+               tag: 'li',
+               clases: ['liTitulo'],
+               innHtml: 'Hobbies',
+         },
+         {
+               domPadre: 'ulHobbies',
+               tag: 'li',
+               innHtml: 'Viajar en Bicicleta',
+         }
+      ],
+   }, // Fin de Hobbies
+   ] // Fin de divDatosPersonales
+   
    }],
 
     
    pres:[
+      {
+         domPadre: 'menuPanel',
+         tag: 'p',
+         clases: ['divPresTexto'],
+         innHtml: `
+            Entorno explorado, usual y conocido:
+            <br/>
+            Vercel, React, jQuery, mySql, express, Nodejs, Mongoose, JsonWebToken...
+            <br/><br/>
+            Entorno poco explorado pero conocido:
+            <br/>
+            Angular, Firebase, Redux
+            <br/>
+            <br/>
+            Hobbies:
+            <br/>
+            C++, Phyton.
+            <br/><br/>
+            Acerca de mi:
+            <br/>
+            Entusiasta de la informatica, a finales de primaria inicie un curso de computacion, pasé muchas tardes de secundaria animando en Flash Player, hice una pagina en Dreamweaver, ediciones con photoshop y algunos programas con visual basic.
+            <br/>
+            Mi primer acercamiento serio a Javascript fue con un curso de platzi, (3años aprox) debido al inicio de un proyecto entre compañeros para un negocio hicimos una pagina HTML/JS/PHP. Decidí entonces continuar dedicando mi tiempo a Javascript por la versatilidad que senti en su uso.
+            <br/>
+            De oportunidad en oportunidad, mi conocimiento se amplio, ahora hago proyectos personales de maquinas herramientas con arduino y diversas chucherias.
+            <br/>
+            Ademas realizo distintas herramientas web que me parecen utiles para proyectos futuros y proyectos en desarrollo.
+            Aspiro una oportunidad en el desarrollo web profesional para agilizar sustanciablemente mis habilidades.
+
+         `,
+            
+      },
+         ],
+   tray:[
    {
             domPadre: 'menuPanel',
             tag: 'p',
             innHtml: `
-      Nací en Toluca de Lerdo, Estado de México. Donde curse mis estudios hasta primeros semestres de Universidad.
-      Habité en CDMX cursando algunos otros semestres en el IPN, seguido de iniciar como desarrollador web en una start up con compañeros.
-      Actualmente resido en Lerma, Estado de México. Planeo crear una vivienda casi autosuficiente en algun area rural dentro de la proxima etapa de mi vida.
-      Entusiasta del conocimiento, callado, intentando con cada accion mejorar.
+            Diferentes e-Commerce, Pagina de Logistica con API Google Maps
       `,
             
          },
-         ]
-   ,
-      },
+         ],
+   
+      }, // Fin de Data Presentacion
+      
+      arrHerr: {
+         mp: [{ // Inicio de Data Herr
+               domPadre: 'menuPanel',
+               tag: 'p',
+               innHtml: `
+                  archivoMenuPanel
+               `
+            }
+         ],
+      }, // Fin de Data Herr
+
+      arrProy: {
+         prCom: [{ // Inicio de Data proyectos
+               domPadre: 'menuPanel',
+               tag: 'p',
+               innHtml: `
+                 proyectoCompendio 
+               `
+            }
+         ],
+      } // Fin de Data Herr
+      
 // Fin de data
 }

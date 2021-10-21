@@ -32,14 +32,14 @@ const mpInitPres = () => {
       })
    }
 
-const objVista =[{
+   const objVista =[{
          domPadre: 'menuPanel',
          tag: 'div',
          auxId: 'divPresInit'
          }]
-   // add div pressTexto despues de pDips
    const mpPres = new menuPanel('divCentralMedio', false)
-
+   mpPres.mpLimpiarVista('divCentralMedio', true)
+   mpPres.mpInit('divCentralMedio', false)
 
    const auxEvento = (e) => {
             if(e.target.getAttribute('auxDisp')){
@@ -51,8 +51,106 @@ const objVista =[{
    const auxRender = mpPres.ctrVistaMenuPanel(objVista, false, opcVista.opc, auxEvento)
          
   } 
+
+const mpInitCode = () => {
+   const opcVista ={
+      auxRet: false,
+      opc: dataCode.map((ele)=>{
+         return {
+            tag: 'a',
+            class: ['pCode'],
+            attrbs: [`href="${ele.lnk}" target="_blank"`],
+            innHtml: ele.innHtml
+         }
+      })
+   }
+
+   const objVista =[{
+         domPadre: 'menuPanel',
+         tag: 'div',
+         auxId: 'divCodeInit'
+         }]
+
+   const mpCode = new menuPanel('divCentralMedio', false)
+   mpCode.mpLimpiarVista('divCentralMedio', true)
+   mpCode.mpInit('divCentralMedio', false)
+
+
+   const auxRender = mpCode.ctrVistaMenuPanel(objVista, false, opcVista.opc)
+}
+
+
+const mpInitHerr = () => {
+   const opcVista ={
+      auxRet: false,
+      opc: dataHerr.map((ele)=>{
+         return {
+            tag: 'a',
+            class: ['pCode'],
+            attrbs: [`auxDisp=${ele.auxDisp}`],
+            innHtml: ele.innHtml
+         }
+      })
+   }
+
+   const objVista =[{
+         domPadre: 'menuPanel',
+         tag: 'div',
+         auxId: 'divHerrInit',
+         }]
+
+   const mpHerr = new menuPanel('divCentralMedio', false)
+   mpHerr.mpLimpiarVista('divCentralMedio', true)
+   mpHerr .mpInit('divCentralMedio', false)
+
+   const auxEvento = (e) => {
+            if(e.target.getAttribute('auxDisp')){
+                mpHerr.mpLimpiarVista('menuPanel', true)
+                mpHerr.crearDom(data.arrHerr[e.target.getAttribute('auxDisp')])
+             }
+          }
+
+   const auxRender = mpHerr.ctrVistaMenuPanel(objVista, false, opcVista.opc, auxEvento)
+}
+
+const mpInitProy = () => {
+   const opcVista ={
+      auxRet: false,
+      opc: dataProy.map((ele)=>{
+         return {
+            tag: 'a',
+            clase: ['aGenVis'],
+            attrbs: [`auxDisp=${ele.auxDisp}`],
+            innHtml: ele.innHtml
+         }
+      })
+   }
+
+   const objVista =[{
+         domPadre: 'menuPanel',
+         tag: 'div',
+         auxId: 'divProyInit',
+         }]
+
+   const mpProy = new menuPanel('divCentralMedio', false)
+   mpProy.mpLimpiarVista('divCentralMedio', true)
+   mpProy.mpInit('divCentralMedio', false)
+
+   const auxEvento = (e) => {
+            if(e.target.getAttribute('auxDisp')){
+                mpProy.mpLimpiarVista('menuPanel', true)
+                mpProy.crearDom(data.arrProy[e.target.getAttribute('auxDisp')])
+             }
+          }
+
+   const auxRender = mpProy.ctrVistaMenuPanel(objVista, false, opcVista.opc, auxEvento)
+}
    
 window.onload = () => { 
    // document.getElementById('divBarrMi').addEventListener('click', (e) => {console.log(e.target.getAttribute('auxData'))})
    mpInitPres()
+   document.getElementById('pdispPres').addEventListener('click', ()=>{mpInitPres()})
+   document.getElementById('navHerr').addEventListener('click', ()=>{mpInitHerr()})
+   document.getElementById('navProy').addEventListener('click', ()=>{mpInitProy()})
+   document.getElementById('navCode').addEventListener('click', ()=>{mpInitCode()})
 }

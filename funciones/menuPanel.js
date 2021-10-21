@@ -44,6 +44,11 @@ export default class menuPanel {
          }
    
    this.opciones = {...genOpc}
+   this.mpInit(domPadre, opcRet)
+   }
+   
+
+mpInit(domPadre, opcRet = true){
    document.getElementById(domPadre).appendChild(fnsGen.stringToHtml('<div id="mpVista"></div>'))
    this.mpVistaOpciones(opcRet)
    document.getElementById(domPadre).appendChild(fnsGen.stringToHtml('<div id="menuPanel"></div>'))
@@ -139,18 +144,18 @@ fnVistaTagReduce(auxObj, auxArr=[]){
               const auxStr = `
                       <div class="parFormulario">
                       <label for="${ele.auxId}">${ele.label}</label>
-                      <${ele.tag} ${ele.auxId} ${ele.auxClases ? 'class="'+ele.auxClases.join(' ')+'"' : ''} ${ele.auxAttrbs ? ele.auxAttrbs.join(' ') : ''}> </${ele.tag}>
+                      <${ele.tag} ${ele.auxId} ${ele.clases ? 'class="'+ele.clases.join(' ')+'"' : ''} ${ele.attrbs ? ele.attrbs.join(' ') : ''}> </${ele.tag}>
                       </div>`
           acc.push({domPadre: ele.domPadre, vista: auxStr, evento: ele.evento} )
       }
       
       if (ele.tag === 'div'){
          const auxStr = `
-            <div id="${ele.auxId}" ${ele.auxClases ? 'class="'+ele.auxClases.join(' ')+'"' : ''} ${ ele.attrbs ? ele.attrbs.join(' ') : ''}></div>`
+            <div id="${ele.auxId}" ${ele.clases ? 'class="'+ele.clases.join(' ')+'"' : ''} ${ ele.attrbs ? ele.attrbs.join(' ') : ''}></div>`
             acc.push({domPadre: ele.domPadre, vista: auxStr, evento: ele.evento})
       }
       if(!ele.ctrData && ele.tag != 'div'){
-            const auxStr = `<${ele.tag} ${ele.auxId ? 'id="'+ele.auxId+'"' : ''} ${ele.auxClases ? 'class="'+ele.auxClases.join(' ')+'"' : ''} ${ ele.attrbs ? ele.attrbs.join(' ') : ''}>${ele.innHtml ? ele.innHtml: ''}</ ${ele.tag}>` 
+            const auxStr = `<${ele.tag} ${ele.auxId ? 'id="'+ele.auxId+'"' : ''} ${ele.clases ? 'class="'+ele.clases.join(' ')+'"' : ''} ${ ele.attrbs ? ele.attrbs.join(' ') : ''}>${ele.innHtml ? ele.innHtml: ''}</ ${ele.tag}>` 
        acc.push({domPadre: ele.domPadre, vista: auxStr, evento: ele.evento} )
             }
     if(ele.domHijos){
