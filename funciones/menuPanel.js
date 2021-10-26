@@ -144,7 +144,7 @@ fnVistaTagReduce(auxObj, auxArr=[]){
               const auxStr = `
                       <div class="parFormulario">
                       <label for="${ele.auxId}">${ele.label}</label>
-                      <${ele.tag} ${ele.auxId} ${ele.clases ? 'class="'+ele.clases.join(' ')+'"' : ''} ${ele.attrbs ? ele.attrbs.join(' ') : ''}> </${ele.tag}>
+                      <${ele.tag} ${ele.auxId} ${ele.clases  ? 'class="'+ele.clases.join(' ')+'"' : ''} ${ele.attrbs ? ele.attrbs.join(' ') : ''}> </${ele.tag}>
                       </div>`
           acc.push({domPadre: ele.domPadre, vista: auxStr, evento: ele.evento} )
       }

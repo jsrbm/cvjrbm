@@ -12,26 +12,133 @@ const dataPres = [
       innHtml: 'Trayectoria',
    },
 ]
+const dataInitPres = [
+   {
+      domPadre: 'menuPanel',
+      tag:'div',
+      auxId: 'divInitPres', 
+      clases: [],
+      domHijos: [
+         {
+            domPadre: 'divInitPres',
+            tag:'p',
+            clases:[],
+               innHtml: '¿Requires un desarrollador?, Contáctame, hago paginas más bonitas, pero esta me gusta ;)'
+         },
+         {
+            domPadre: 'divInitPres',
+            tag:'p',
+            clases:[],
+               innHtml: 'Contacto:'
+         },
+         {
+            domPadre: 'divInitPres',
+            tag:'p',
+            clases:[],
+            innHtml: 'e-mail: drentoluca2@gmail.com'
+         },
+         {
+            domPadre: 'divInitPres',
+            tag:'p',
+            clases:[],
+            innHtml: 'WhatsApp: 729 247 1337' 
+         },
+         {
+            domPadre: 'divInitPres',
+            tag:'div',
+            auxId: 'divMuestrario',
+            clases: [],
+            domHijos: [
+               {
+                  domPadre: 'divMuestrario',
+                  tag: 'div',
+                  auxId: 'divMuestrarioPostres',
+                  clases: ['genMuestrario'],
+                  domHijos: [
+                        {
+                           domPadre: 'divMuestrarioPostres',
+                           tag:'p',
+                           clases:['btnPostres'],
+                           innHtml: 'Pasteles' 
+                        },
+                        {
+                           domPadre: 'divMuestrarioPostres',
+                           tag:'p',
+                           clases:['btnPostres'],
+                           innHtml: 'Galletas' 
+                        },
+                        {
+                           domPadre: 'divMuestrarioPostres',
+                           tag:'p',
+                           clases:['btnPostres'],
+                           innHtml: 'Pays' 
+                        },
+                        {
+                           domPadre: 'divMuestrarioPostres',
+                           tag:'p',
+                           clases:['btnPostres'],
+                           innHtml: 'Pan' 
+                        },
+                     ], // Fin Listado Postres
+               },
+              { 
+                  domPadre: 'divMuestrario',
+                  tag: 'div',
+                  auxId: 'divMuestrarioMuebles',
+                  clases: ['genMuestrario'],
+                  domHijos: [
+                        {
+                           domPadre: 'divMuestrarioMuebles',
+                           tag:'p',
+                           clases:[],
+                           innHtml: 'Muebles' 
+                        },
+                        ]
+               },
+              { 
+                  domPadre: 'divMuestrario',
+                  tag: 'div',
+                  auxId: 'divMuestrarioGen',
+                  clases: ['genMuestrario'],
+                  domHijos: [
+                        {
+                           domPadre: 'divMuestrarioGen',
+                           tag:'p',
+                           clases:[],
+                           innHtml: 'generico' 
+                        },
+                        ]
+               },
+
+            ] // Fin Hijos Muestrario
+         },
+         ] // Fin divInitPresHijos
+   }
+   ]
+
 const dataHerr = [
    {
       auxDisp: 'mp',
+      clases: ['btnGenerico'],
       innHtml: 'menuPanel',
    }
 ]
 const dataProy = [
    {
       auxDisp: 'prCom',
-      clases: [],
+      clases: ['btnGenerico'],
       innHtml: 'proyectoCompendio',
    }
 ]
 const dataCode = [
    {
       innHtml: 'this.repo',
+      clases: ['btnGenerico'],
       lnk: 'https://github.com/jsrbm/cvjrbm',
    },
    {
       innHtml: 'herramientas.repo',
+      clases: ['btnGenerico'],
       lnk: 'https://github.com/jsrbm/',
    },
 ]
@@ -57,22 +164,22 @@ arrmpBarraMiData : {
             {
                domPadre: 'ulEscuelas',
                tag: 'li',
-               innHtml: 'Primaria Eudoxia Calderon Gomez anexa a la Normal de Profesores',
+               innHtml: 'Primaria: Eudoxia Calderon Gomez anexa a la Normal de Profesores',
             },
             {
                domPadre: 'ulEscuelas',
                tag: 'li',
-               innHtml: 'Secundaria Oficial No. 5 anexa a la ENSEM',
+               innHtml: 'Secundaria: Oficial No. 5 anexa a la ENSEM',
             },
             {
                domPadre: 'ulEscuelas',
                tag: 'li',
-               innHtml: 'Preparatoria Cualcan, Lerma',
+               innHtml: 'Preparatoria:  Cualcan, Lerma',
             },
             {
                domPadre: 'ulEscuelas',
                tag: 'li',
-               innHtml: 'IPN',
+               innHtml: 'Universidad: IPN -Lic. Fisica y Matemáticas (3 semestres)',
             },
             {
                domPadre: 'ulEscuelas',
@@ -105,6 +212,7 @@ arrmpBarraMiData : {
          },
       ],
    },
+
    {
       domPadre: 'divDatosPersonales',
       tag: 'ul',
@@ -166,6 +274,7 @@ arrmpBarraMiData : {
    {
             domPadre: 'menuPanel',
             tag: 'p',
+            clases: ['pTray'],
             innHtml: `
             Diferentes e-Commerce, Pagina de Logistica con API Google Maps
       `,
