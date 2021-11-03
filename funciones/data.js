@@ -57,6 +57,20 @@ const dataInitPres = [
                   domHijos: [
                         {
                            domPadre: 'divMuestrarioPostres',
+                           tag: 'img',
+                           auxId: 'ddTapa1',
+                           clases: ['divDulceAnimacion'],
+                           attrbs: ['src="../assets/imagenes/dulceDeliciasTapa1.jpg"', 'alt="click"']
+                        },
+                        {
+                           domPadre: 'divMuestrarioPostres',
+                           tag: 'img',
+                           auxId: 'ddTapa2',
+                           clases: ['divDulceAnimacion'],
+                           attrbs: ['src="../assets/imagenes/dulceDeliciasTapa2.jpg"', 'alt="click"']
+                        },
+                        {
+                           domPadre: 'divMuestrarioPostres',
                            tag:'p',
                            clases:['btnPostres'],
                            innHtml: 'Pasteles' 

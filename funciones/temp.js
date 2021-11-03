@@ -1,4 +1,5 @@
 import menuPanel from "./menuPanel.js"
+import dd from "./ddMuestrario.js"
 
 const toggItem = (auxVista) => {
    const auxDom = document.getElementById(auxVista)
@@ -157,4 +158,8 @@ window.onload = () => {
    document.getElementById('navHerr').addEventListener('click', ()=>{mpInitHerr()})
    document.getElementById('navProy').addEventListener('click', ()=>{mpInitProy()})
    document.getElementById('navCode').addEventListener('click', ()=>{mpInitCode()})
+
+
+   // Muestrarios
+   document.getElementById('divMuestrarioPostres').addEventListener('mouseenter', ()=>{dd.fnDestapar()})
 }
